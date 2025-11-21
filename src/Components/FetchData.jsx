@@ -23,7 +23,7 @@ const FetchData = () => {
           ))}
         </ul>
       ) : (
-        <p>Carregando dados...</p>
+        <p>Carregando dados,aguarde...</p>
       )}
     </>
   );
