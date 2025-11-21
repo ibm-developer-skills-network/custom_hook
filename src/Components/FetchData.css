@@ -1,29 +1,155 @@
-/* FetchData.css */
-
+body {
+  background-color: red !important;
+}
 .list_data_main {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.usefetch_heading {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #2c5530;
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.usefetch_heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #2c5530, #4a7c59);
+  border-radius: 2px;
+}
+
+.list_data {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 15px;
+  padding: 25px;
+  border: none;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.list_data::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4a7c59, #2c5530);
+}
+
+.list_data:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.list_data h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #2c5530;
+  font-weight: 600;
+  text-align: center;
+}
+
+.list_data img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  border: 4px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.list_data:hover img {
+  border-color: #4a7c59;
+  transform: scale(1.05);
+}
+
+.list_data p {
+  margin: 8px 0;
+  text-align: center;
+  line-height: 1.5;
+  color: #495057;
+}
+
+.list_data strong {
+  color: #2c5530;
+  font-weight: 600;
+}
+
+/* Efeito de loading animado */
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .list_data_main {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 15px;
   }
-  .usefetch_heading{
-    text-align: center;
-  }
- .list_data {
+  
+  .usefetch_heading {
+    font-size: 2rem;
     margin-bottom: 20px;
+  }
+  
+  .list_data {
+    padding: 20px;
+  }
+  
+  .list_data img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .list_data_main {
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  }
+  
+  .list_data {
+    padding: 15px;
   }
   
   .list_data h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
+    font-size: 1.3rem;
   }
   
-  .list_data p {
-    margin: 5px 0;
+  .list_data img {
+    width: 120px;
+    height: 120px;
   }
-  
+}
